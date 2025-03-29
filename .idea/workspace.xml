@@ -52,31 +52,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.dual-pivot.executor": "Run",
-    "Python.dual_pivot (1).executor": "Run",
-    "Python.dual_pivot.executor": "Run",
-    "Python.heapsort.executor": "Run",
-    "Python.insertion_sort.executor": "Run",
-    "Python.introsort.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.mergesort.executor": "Run",
-    "Python.quicksort.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.timsort (1).executor": "Run",
-    "Python.timsort.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "introsort",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.dual-pivot.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dual_pivot (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.dual_pivot.executor&quot;: &quot;Run&quot;,
+    &quot;Python.heapsort.executor&quot;: &quot;Run&quot;,
+    &quot;Python.insertion_sort.executor&quot;: &quot;Run&quot;,
+    &quot;Python.introsort.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mergesort.executor&quot;: &quot;Run&quot;,
+    &quot;Python.quicksort.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.timsort (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.timsort.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;introsort&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.timsort">
     <configuration name="insertion_sort" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Sortowanie" />
