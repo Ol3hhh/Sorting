@@ -1,3 +1,5 @@
+from multiprocessing import Pool
+
 def make_tree(data, i, bound):
     while 2 * i + 1 < bound:
         left = 2 * i + 1
@@ -13,8 +15,18 @@ def make_tree(data, i, bound):
         data[i], data[largest] = data[largest], data[i]
         i = largest
 
-def heapsort(data):
+def parallel_heapify(data, start_index, end_index):
+    for i in range(start_index, end_index):
+        make_tree(data, i, len(data))
+
+def mheapsort(data):
     n = len(data)
+
+    num_workers = 4
+    chunk_size = n // num_workers
+
+    with Pool(num_workers) as pool:
+        pool.starmap(parallel_heapify, [(data, i * chunk_size, (i + 1) * chunk_size) for i in range(num_workers)])
 
     for i in range(n // 2 - 1, -1, -1):
         make_tree(data, i, n)

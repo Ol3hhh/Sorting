@@ -1,24 +1,35 @@
+
 def calcMinRun(n):
     r = 0
-    while n >= 32:
+    while n >= 64:
         r |= n & 1
         n >>= 1
-    return n + r
+    return n + r + 32
 
 def merge(data, left, mid, right):
-    i, j = left, mid + 1
-    while i <= mid and j <= right:
-        if data[i] <= data[j]:
+    left_part = data[left:mid + 1]
+    right_part = data[mid + 1:right + 1]
+    i = j = 0
+    k = left
+
+    while i < len(left_part) and j < len(right_part):
+        if left_part[i] <= right_part[j]:
+            data[k] = left_part[i]
             i += 1
         else:
-            value = data[j]
-            k = j
-            while k > i:
-                data[k] = data[k - 1]
-                k -= 1
-            data[i] = value
-            i += 1
+            data[k] = right_part[j]
             j += 1
+        k += 1
+
+    while i < len(left_part):
+        data[k] = left_part[i]
+        i += 1
+        k += 1
+
+    while j < len(right_part):
+        data[k] = right_part[j]
+        j += 1
+        k += 1
 
 def insertion_sort(data, left, right):
     for i in range(left + 1, right + 1):
@@ -40,29 +51,24 @@ def adapt_runs(data, n, minrun):
         while end + 1 < n and data[end] <= data[end + 1]:
             end += 1
 
-        if end - start + 1 >= minrun:
-            runs.append((start, end))
-            i = end + 1
-        else:
-            end = start
+        if end == start:
             while end + 1 < n and data[end] >= data[end + 1]:
                 end += 1
+            data[start:end + 1] = reversed(data[start:end + 1])
 
-            if end - start + 1 >= minrun:
-                data[start:end + 1] = data[start:end + 1][::-1]
-                runs.append((start, end))
-                i = end + 1
-            else:
-                end = min(start + minrun - 1, n - 1)
-                runs.append((start, end))
-                i = end + 1
+        run_size = end - start + 1
+        if run_size < minrun:
+            end = min(start + minrun - 1, n - 1)
+            insertion_sort(data, start, end)
+
+        runs.append((start, end))
+        i = end + 1
 
     return runs
 
 def timsort(data):
     n = len(data)
     minrun = calcMinRun(n)
-
     runs = adapt_runs(data, n, minrun)
 
     for run in runs:
@@ -84,13 +90,5 @@ def timsort(data):
 
         runs = merged_runs
 
-    print("Sorted Array:")
-    print(data)
+    return data
 
-if __name__ == "__main__":
-    data = [1, 2, 3, 4, 4, 21, 5, 4, 2, 1, 7, 23, 19, 3, 1, 16]
-
-    print("Given Array:")
-    print(data)
-
-    timsort(data)
